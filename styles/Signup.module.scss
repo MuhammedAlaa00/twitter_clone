@@ -1,0 +1,58 @@
+$White-color: #fff;
+$Space-color: #1D9BF0;
+$Grey-color: #D6D9DB;
+$Dark-color: #000;
+
+.container {
+    display: flex;
+
+    .column {
+        flex: 50%;
+        height: 100vh;
+    }
+
+    .background {
+        background: url("../public/media/lohp_en_1302x955.png");
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @media (min-width:320px) and (max-width:991px) {
+            display: none;
+        }
+    }
+
+    .signInContainer {
+        padding: 20px;
+    }
+
+    .btnsContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .SignIn {
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid $Grey-color ;
+            background-color: $White-color ;
+            box-shadow: 11px 9px 15px 3px $Grey-color;
+            padding: 1rem;
+            border-radius: 10px;
+            color: $Dark-color ;
+
+            span {
+                margin-right: 10px;
+                margin-left: 10px;
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+:export {
+    WhiteColor: $White-color;
+    SpaceColor: $Space-color
+}
