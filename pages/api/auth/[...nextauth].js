@@ -21,11 +21,13 @@ export default NextAuth({
   // callbacks: {
   //   async jwt({ token, user }) {
   //     if (user) {
+  //       console.log(user, token);
   //       token.id = user.id;
   //     }
   //     return token;
   //   },
   //   async session({ session, token }) {
+  //     console.log(session, token);
   //     session.user.id = token.id;
   //     return session;
   //   },

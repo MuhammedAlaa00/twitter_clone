@@ -1,13 +1,16 @@
 // Import the functions you need from the SDKs you need
-import { firebaseConfig } from "./FirebaseConfig";
-import { initializeApp } from "firebase/app";
-import { getFirestore, collection } from "firebase/firestore";
+import { firebaseConfig } from './FirebaseConfig';
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection } from 'firebase/firestore';
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+// function Firebase() {
+//   this.users = () => collection(db, 'users');
+// }
 class Firebase {
   constructor() {
-    this.db = db;
+    this.db = db
   }
-  users = () => collection(this.db, "users");
+  users = () => collection(this.db, 'users');
 }
 export { Firebase };

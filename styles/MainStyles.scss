@@ -2,23 +2,59 @@ $White-color: #fff;
 $Space-color: #1D9BF0;
 $Grey-color: #D6D9DB;
 $Dark-color: #000;
+$primary-darkTheme-color: #23282D;
 
 span {
-    font-size: clamp(0.9em, 1.1vw, 1em);
-    color: $Dark-color;
+    font-size: clamp(1em, 1.1vw, 1.1em);
+    text-transform: capitalize;
+    // color: $Dark-color;
 }
 
 h2 {
-    font-size: 7vw;
+    font-size: clamp(3.5em, 6vw, 7vw);
     font-weight: 700;
     letter-spacing: -2px;
     line-height: 7rem;
-    color:$Dark-color
+    color: $Dark-color;
+
+    @media (min-width:320px) and (max-width:767px) {
+        line-height: 4rem;
+    }
 }
 
 h3 {
-    font-size: 5vw;
+    font-size: clamp(2.5em, 4vw, 5vw);
     font-weight: 700;
     letter-spacing: -2px;
     color: $Dark-color
+}
+
+.closeBtn {
+    width: 35px;
+    min-width: 35px;
+    padding: 8px 5px;
+    border-radius: 50%;
+    color: unset;
+}
+
+.TypoGraphyheader {
+    color: $primary-darkTheme-color ;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

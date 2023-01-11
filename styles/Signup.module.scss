@@ -2,35 +2,38 @@ $White-color: #fff;
 $Space-color: #1D9BF0;
 $Grey-color: #D6D9DB;
 $Dark-color: #000;
-
+$primary-darkTheme-color: #23282D;
 .container {
     display: flex;
-
     .column {
         flex: 50%;
         height: 100vh;
     }
-
     .background {
         background: url("../public/media/lohp_en_1302x955.png");
         display: flex;
         justify-content: center;
         align-items: center;
-
         @media (min-width:320px) and (max-width:991px) {
             display: none;
         }
     }
-
     .signInContainer {
         padding: 20px;
+        @media (min-width:320px) and (max-width:991px) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            background: url("../public/media/lohp_en_1302x955.png");
+        }
     }
-
     .btnsContainer {
         display: flex;
         justify-content: center;
-        align-items: center;
-
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
         .SignIn {
             margin: 10px;
             display: flex;
@@ -41,18 +44,41 @@ $Dark-color: #000;
             box-shadow: 11px 9px 15px 3px $Grey-color;
             padding: 1rem;
             border-radius: 10px;
+            width: 50%;
             color: $Dark-color ;
-
             span {
                 margin-right: 10px;
                 margin-left: 10px;
                 font-weight: 600;
             }
+            @media (min-width:320px) and (max-width:569px) {
+                width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            @media (min-width:320px) and (max-width:991px) {
+                box-shadow: none;
+            }
+        }
+        .SignUp {
+            border: 1px solid $Space-color ;
+            background-color: $Space-color ;
+            color: $White-color;
+            span {
+                font-weight: 500
+            }
+            @media (min-width:320px) and (max-width:991px) {
+                // width: 170px;
+            }
         }
     }
 }
-
+.ModalHeaderContainer {
+    display: flex;
+    align-items: center;
+}
 :export {
     WhiteColor: $White-color;
-    SpaceColor: $Space-color
+    SpaceColor: $Space-color;
+    PrimaryDarkThemeColor: $primary-darkTheme-color
 }
