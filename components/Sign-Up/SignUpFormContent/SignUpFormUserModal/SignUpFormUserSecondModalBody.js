@@ -8,10 +8,10 @@ function SignUpFormUserSecondModalBody() {
     const { checked, setChecked } = useListViewContext()
     return (
         <React.Fragment>
-            <Typography variant="h4" className="mb-4">
+            <Typography variant="h4" className="mb-10">
                 Customize your experience
             </Typography>
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center mb-10">
                 <div>
                     <Typography variant="h5" gutterBottom>
                         Track where you see Twitter content across the web
@@ -24,10 +24,12 @@ function SignUpFormUserSecondModalBody() {
                     <Checkbox {...label} checked={checked} />
                 </div>
             </div>
-            <Typography variant="body1" gutterBottom>
-                By signing up, you agree to our <Link underline="none" href="#">Terms</Link>, <Link underline="none" href="#">Privacy Policy</Link>, and <Link underline="none" href="#">Cookie Use</Link> . Twitter may use your contact information, 
-                including your email address and phone number for purposes outlined in our Privacy Policy. <Link underline="none" href="#">Learn more</Link>
-            </Typography>
+            <div>
+                <Typography variant="body1" gutterBottom>
+                    By signing up, you agree to our <Link underline="none" href="#">Terms</Link>, <Link underline="none" href="#">Privacy Policy</Link>, and <Link underline="none" href="#">Cookie Use</Link> . Twitter may use your contact information,
+                    including your email address and phone number for purposes outlined in our Privacy Policy. <Link underline="none" href="#">Learn more</Link>
+                </Typography>
+            </div>
         </React.Fragment>
     )
 }

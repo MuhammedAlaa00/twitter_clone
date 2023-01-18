@@ -8,12 +8,12 @@ function SignUpFormUserModalBody() {
   const { isPhoneSelected, setIsPhoneSelected, register, errors, watch, control } =
     useRequestProviderContext();
   const [togglEmailPhone, setTogglEmailPhone] = useState(false);
-  // const [phoneOrEmailError, setphoneOrEmailError] = useState('');
   const days = updateDays(watch('Month'), Months);
   const handleSecondInput = () => {
     setTogglEmailPhone(!togglEmailPhone);
     setIsPhoneSelected(!isPhoneSelected);
   };
+  console.log(watch());
   const renderListofItems = (items) => {
     return items?.map((item, index) => {
       return (
@@ -23,13 +23,6 @@ function SignUpFormUserModalBody() {
       );
     });
   };
-  // useEffect(() => {
-  //   if (isPhoneSelected) {
-  //     setphoneOrEmailError('phone is reqiured');
-  //   } else {
-  //     setphoneOrEmailError('email is reqiured');
-  //   }
-  // }, [isPhoneSelected]);
   return (
     <form>
       <Typography variant="h4" className="mb-4">
@@ -44,7 +37,7 @@ function SignUpFormUserModalBody() {
             'form-input secondColor cursor-pointer text-lg px-4 py-5 placeholder:text-secondColor  rounded-md border-inputBorderColor hover:border-inputBorderColor focus:border-sky-600 w-full'
           }
         />
-        <p>{errors.Name?.message}</p>
+        <p className="text-errorColor">{errors.Name?.message}</p>
       </div>
       <div className="mb-4">
         {isPhoneSelected && (
@@ -71,7 +64,7 @@ function SignUpFormUserModalBody() {
             />
           </div>
         )}
-        <p>{errors?.EmailOrPhone?.message}</p>
+        <p className="text-errorColor">{errors?.EmailOrPhone?.message}</p>
       </div>
       <div className="text-right ml-auto">
         <Typography
@@ -98,7 +91,7 @@ function SignUpFormUserModalBody() {
             render={({ field: { onChange, onBlur, value, name } }) => (
               <select
                 name={name}
-                value={value}
+                value={value? value : "Month"}
                 onChange={onChange}
                 onBlur={onBlur}
                 className="form-select secondColor 
@@ -107,12 +100,12 @@ function SignUpFormUserModalBody() {
                 rounded-md border-inputBorderColor 
                 hover:border-inputBorderColor 
                 focus:border-sky-600 w-full">
-                <option value={''}>{watch('Month') || 'Month'}</option>
-                {renderListofItems(Months.filter((item) => item !== watch('Month')))}
+                <option value={'Month'} disabled>Month</option>
+                {renderListofItems(Months)}
               </select>
             )}
           />
-          <p>{errors.Month?.message}</p>
+          <p className="text-errorColor">{errors.Month?.message}</p>
         </div>
         <div className="flex">
           <div className="flex-1">
@@ -138,7 +131,7 @@ function SignUpFormUserModalBody() {
                 </select>
               )}
             />
-            <p>{errors.Day?.message}</p>
+            <p className="text-errorColor">{errors.Day?.message}</p>
           </div>
           <div className="flex-1 ml-3">
             <Controller
@@ -163,7 +156,7 @@ function SignUpFormUserModalBody() {
                 </select>
               )}
             />
-            <p>{errors.Year?.message}</p>
+            <p className="text-errorColor">{errors.Year?.message}</p>
           </div>
         </div>
       </div>

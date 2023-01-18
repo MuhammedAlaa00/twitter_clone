@@ -68,7 +68,7 @@ function isLeapYear(year) {
 };
  */
 // * chatGpt code here *
-const currentYear = new Date().getFullYear();
+const currentYear = new Date().getFullYear() - 15;
 export const getyearsList = Array.from({ length: 100 }, (_, i) => currentYear - i);
 // ? my code here
 /**
@@ -80,3 +80,8 @@ export const getyearsList = Array.from({ length: 100 }, (_, i) => currentYear - 
     .map((year, index) => now - index);
 };
  */
+// * check if object is empty 
+
+export const isObjectEmpty = (objectName) => {
+  return Object.keys(objectName).length === 0
+}

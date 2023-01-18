@@ -9,10 +9,13 @@ function RequestProvider({ children }) {
   const userSchema = yup
     .object({
       Name: yup.string().required(),
-      EmailOrPhone: isPhoneSelected ? yup.string().matches(
-        /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{5}$/,
-        'Invalid phone number format'
-      ).required("phone is reqiured") : yup.string().email("Invalid E-mail format").required("E-mail is reqiured"),
+      EmailOrPhone: isPhoneSelected ? yup.string()
+        .required("phone is reqiured")
+        .min(8, 'Invalid phone number')
+        .max(15, 'Invalid phone number too long')
+        : yup.string()
+          .email("Invalid E-mail format")
+          .required("E-mail is reqiured"),
       Month: yup.string().required('please insert month'),
       Day: yup.string().required('please insert day'),
       Year: yup.string().required('please insert year')
@@ -22,8 +25,7 @@ function RequestProvider({ children }) {
     register,
     handleSubmit,
     watch,
-    setValue,
-    resetField,
+    reset,
     control,
     formState: { errors, isValid }
   } = useForm({
@@ -45,6 +47,7 @@ function RequestProvider({ children }) {
         register,
         handleSubmit,
         watch,
+        reset,
         errors,
         isValid,
         control

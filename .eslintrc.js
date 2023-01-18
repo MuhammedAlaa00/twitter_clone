@@ -9,8 +9,9 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react"],
+  plugins: ["react", "import"],
   rules: {
     "react/react-in-jsx-scope": "off",
+    "import/no-unresolved": "error"
   },
 };

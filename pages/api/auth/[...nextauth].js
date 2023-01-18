@@ -1,5 +1,7 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
+import {ss_db} from "../../../Firebase/Firebase"
 export default NextAuth({
   providers: [
     GoogleProvider({
@@ -18,18 +20,18 @@ export default NextAuth({
     encryption: true,
   },
   secret: "ksdahlkhsd",
-  // callbacks: {
-  //   async jwt({ token, user }) {
-  //     if (user) {
-  //       console.log(user, token);
-  //       token.id = user.id;
-  //     }
-  //     return token;
-  //   },
-  //   async session({ session, token }) {
-  //     console.log(session, token);
-  //     session.user.id = token.id;
-  //     return session;
-  //   },
-  // },
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        console.log(user, token);
+        token.id = user.id;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      // console.log(session, token);
+      session.user.id = token.id;
+      return session;
+    },
+  },
 });

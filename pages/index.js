@@ -1,27 +1,26 @@
 import Head from 'next/head';
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
-import { useSession, signOut } from 'next-auth/react';
+import { signOut } from 'next-auth/react';
+import { useSelector } from 'react-redux';
+import { isObjectEmpty } from "../helpers/helperfn"
+import Loader from '../components/SpinnerLoader';
 export default function Home() {
-  const { data: session, status } = useSession();
-  const router = useRouter();
-  useEffect(() => {
-    if (status === 'unauthenticated') {
-      router.push('/signup');
-    }
-  }, [router, status]);
-  if (status === 'authenticated') {
-    return (
-      <div>
-        <Head>
-          <title>Home</title>
-          <link rel="icon" href="" />
-        </Head>
-        <div>
-          {session?.user.name}
-          <button onClick={() => signOut()}>sign Out</button>
-        </div>
-      </div>
-    );
+  const state = useSelector(state => state);
+  const handleSignOut = () => {
+    localStorage.clear();
+    signOut({ callbackUrl: '/signup' })
   }
+  return (
+    <div>
+      <Head>
+        <title>Home</title>
+        <link rel="icon" href="" />
+      </Head>
+      <div>
+        {/* {status == "loading" ? <Loader /> : <>{session?.user.name}</>} */}
+        {isObjectEmpty(state.user) ? <Loader />  : <>{state.user.userName}</>}
+        <br/>
+        <button onClick={handleSignOut}>sign Out</button>
+      </div>
+    </div>
+  );
 }

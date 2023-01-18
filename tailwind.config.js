@@ -7,7 +7,8 @@ module.exports = {
       primaryColor: '#1D9BF0',
       secondColor: '#536471',
       blackColor: '#000',
-      whiteColor:"#fff"
+      whiteColor:"#fff",
+      errorColor: '#ef4444',
     },
     extend: {}
   },

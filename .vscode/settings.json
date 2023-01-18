@@ -1,0 +1,12 @@
+{
+    "autoimport.absolute": true,
+    "autoimport.semicolon": true,
+    "autoimport.doubleQuotes": true,
+    "emmet.preferences": {
+    
+    }, 
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    "importStatements.javascript.withExtnameJS": true
+}

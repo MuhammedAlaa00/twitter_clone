@@ -3,13 +3,11 @@ import { signIn, useSession } from 'next-auth/react';
 import styles from '../../../styles/Signup.module.scss';
 import ButtonC from '../../AuthButtons';
 import { ToastContainer, toast } from 'react-toastify';
-import { useRouter } from 'next/router';
 import { useListViewContext } from './core/useListviewModal';
+import { useFirebase } from '../../../Firebase/FirebaseContext';
 import 'react-toastify/dist/ReactToastify.css';
 function SignInAuthBtnsContent() {
   const { setOpenSignUpModal } = useListViewContext();
-  const router = useRouter();
-  const { data: session} = useSession();
   const [loading, setLoading] = useState({
     googleLoading: false,
     appleLoading: false,
@@ -20,14 +18,7 @@ function SignInAuthBtnsContent() {
       ...loading,
       googleLoading: true
     });
-    signIn(provider);
-    if (session) {
-      setLoading({
-        ...loading,
-        googleLoading: false
-      });
-      router.push('/');
-    }
+    signIn(provider, {callbackUrl:"/"})
   };
   const handleAuthSignIn = (e, provider) => {
     e.preventDefault();
@@ -59,6 +50,7 @@ function SignInAuthBtnsContent() {
         handleopenSignUpModal={openSignUpModal}
         loading={loading.signUpLoading}
         provider="signUp"
+        href="/"
       />
       <ToastContainer />
     </div>

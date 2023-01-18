@@ -16,8 +16,8 @@ function SignUpFormUserModalHeader({ onClose }) {
       </div>
       <div className="ml-2">
         <Typography className="TypoGraphyheader">
-          {!openSecondModalBody && `Step 1 of 5`}
-          {openSecondModalBody && `Step 2 of 5`}
+          {!openSecondModalBody && `Step 1 of 2`}
+          {openSecondModalBody && `Step 2 of 2`}
         </Typography>
       </div>
     </div>
