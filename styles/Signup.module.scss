@@ -20,6 +20,7 @@ $primary-darkTheme-color: #23282D;
     }
     .signInContainer {
         padding: 20px;
+        // background-color: #000;
         @media (min-width:320px) and (max-width:991px) {
             display: flex;
             flex-direction: column;
@@ -41,7 +42,7 @@ $primary-darkTheme-color: #23282D;
             justify-content: center;
             border: 1px solid $Grey-color ;
             background-color: $White-color ;
-            box-shadow: 11px 9px 15px 3px $Grey-color;
+            // box-shadow: 11px 9px 15px 3px $Grey-color;
             padding: 1rem;
             border-radius: 10px;
             width: 50%;

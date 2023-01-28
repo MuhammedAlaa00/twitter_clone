@@ -12,7 +12,7 @@ function ButtonC({ handleAuth, handleopenSignUpModal, provider, loading, href })
     <Button
       onClick={(e) => CheckAction(e)}
       variant="outlined"
-      className={`${styles.SignIn} ${provider === 'signUp' && styles.SignUp}`}
+      className={`${styles.SignIn} ${provider === 'signUp' && styles.SignUp} dark:shadow-light shadow-dark`}
     >
       <Link href={"/"}>
         <>

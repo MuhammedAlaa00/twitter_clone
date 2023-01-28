@@ -19,6 +19,7 @@ function SignInAuthBtnsContent() {
       googleLoading: true
     });
     signIn(provider, {callbackUrl:"/"})
+    localStorage.setItem('loggedIn', true)
   };
   const handleAuthSignIn = (e, provider) => {
     e.preventDefault();

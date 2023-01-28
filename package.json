@@ -13,6 +13,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
+    "@heroicons/react": "^1.0.6",
     "@hookform/resolvers": "^2.9.8",
     "@mui/material": "^5.10.2",
     "@next-auth/firebase-adapter": "^1.0.3",
@@ -22,7 +23,9 @@
     "next": "12.2.5",
     "next-auth": "^4.18.8",
     "next-redux-wrapper": "^8.1.0",
+    "next-themes": "^0.2.1",
     "react": "18.2.0",
+    "react-css-theme-switcher": "^0.3.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.36.0",
     "react-toastify": "^9.0.8",
@@ -47,6 +50,8 @@
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-react-hooks": "^4.6.0",
     "postcss": "^8.4.16",
+    "postcss-apply": "^0.12.0",
+    "postcss-import": "^15.1.0",
     "prettier": "^2.7.1",
     "tailwindcss": "^3.1.8"
   }

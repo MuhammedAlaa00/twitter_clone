@@ -32,4 +32,4 @@ function GoogleIcon({width}) {
   );
 }
 
-export default GoogleIcon;
+export { GoogleIcon};

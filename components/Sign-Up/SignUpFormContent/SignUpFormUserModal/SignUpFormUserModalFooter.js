@@ -20,6 +20,7 @@ function SignUpFormUserModalFooter() {
   const handleFormSubmit = () => {
     setopenSecondModalBody(true)
     if (openSecondModalBody) {
+      localStorage.setItem('loggedIn', true)
       const checkUser = user.EmailOrPhone.includes("@")
       const userDate = moment(`${user.Month} ${user.Day}, ${user.Year}`, "MMMM DD, YYYY");
       addDoc(users(), {
@@ -28,11 +29,11 @@ function SignUpFormUserModalFooter() {
         birthDate: userDate.format("MMMM DD, YYYY"),
         email: checkUser ? user.EmailOrPhone : "",
         phoneNumber: !checkUser ? user.EmailOrPhone : ""
-      }).then(response =>  {
+      }).then(response => {
         const doc = getUser(response.id)
-        conosle.log(doc)
         FetchUsers(dispatch, doc)
         localStorage.setItem('currentuser', response.id)
+
       })
       reset()
       router.push('/');
