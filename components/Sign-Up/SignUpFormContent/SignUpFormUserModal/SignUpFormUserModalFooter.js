@@ -2,17 +2,16 @@ import React from 'react';
 import Button from '@mui/material/Button';
 import { useRequestProviderContext } from '../core/RequestProvider';
 import { useListViewContext } from './../core/useListviewModal';
-import { useFirebase } from '../../../../Firebase';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux'
+import { useFirebase } from '../../../../Firebase';
 import { addDoc, Timestamp } from "firebase/firestore"
 import { FetchUsers } from "../../../../Redux/user/actions"
 import moment from 'moment';
 function SignUpFormUserModalFooter() {
   const dispatch = useDispatch()
-  const { getUser } = useFirebase()
+  const { getUser, users } = useFirebase()
   const router = useRouter();
-  const { users } = useFirebase();
   const { openSecondModalBody, setopenSecondModalBody } = useListViewContext()
   const { handleSubmit, isValid, watch, reset } = useRequestProviderContext();
 
@@ -32,8 +31,9 @@ function SignUpFormUserModalFooter() {
       }).then(response => {
         const doc = getUser(response.id)
         FetchUsers(dispatch, doc)
-        localStorage.setItem('currentuser', response.id)
-
+        localStorage.setItem('loggedIn', true)
+        // remmber the id is bewteen Df(id)U
+        localStorage.setItem('auth_token', `Df${response.id}U`)
       })
       reset()
       router.push('/');

@@ -13,10 +13,9 @@ import '../styles/globals.css';
 import '../styles/MainStyles.scss';
 function MyApp({ Component, session, token, ...pageProps }) {
   let windowSize;
-  if(typeof window !== "undefined") {
+  if (typeof window !== "undefined") {
     windowSize = useRef([window?.innerWidth, window?.innerHeight]);
   }
-  console.log(windowSize?.current[1])
   const { store, props } = wrapper.useWrappedStore(pageProps);
   const dispatch = useDispatch()
   const { getUser } = useFirebase()
@@ -53,16 +52,16 @@ function MyApp({ Component, session, token, ...pageProps }) {
                 <div className="sm:hidden md:block">
                   <div className="dark:bg-dark bg-light h-full min-h-screen w-full grid md:grid-cols-[20%_60%_20%] lg:grid-cols-[20%_50%_20%] divide-x divide-borderColor">
                     {/** side Menu section */}
-                    {/* <div className={`relative ${665 < windowSize.current[1] ? 'h-3/5' : 'h-screen'}`}><SideMenuContainer /></div> */}
-                    <div className={`relative`}><SideMenuContainer /></div>
+                    <div className={`relative ${665 < windowSize.current[1] ? 'h-3/5' : 'h-screen'}`}><SideMenuContainer /></div>
+                    {/* <div className={`relative`}><SideMenuContainer /></div> */}
                     {/** Home section */}
                     {/* <div>test</div> */}
-                    <div className=""><Component {...pageProps} /></div>
+                    <div className=""><Component {...props} /></div>
                     {/** (search , news , to follow , messeages) section */}
                     <div className="">test</div>
-                  </div> 
-                </div>:
-                <Component {...pageProps} />}
+                  </div>
+                </div> :
+                <Component {...props} />}
             </ThemeProvider>
           </Provider>
         </FirebaseContext.Provider>

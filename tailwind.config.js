@@ -7,7 +7,8 @@ module.exports = {
       backgroundColor:{
         light: "#fff",
         dark:"#15202B", 
-        space:'#1D9BF0'
+        space:'#1D9BF0', 
+        disabledSpace:"#195D8D"
       },
       colors: {
         borderColor:"#26323C",
@@ -17,6 +18,7 @@ module.exports = {
         blackColor: '#000',
         whiteColor: "#fff",
         errorColor: '#ef4444',
+        disabledColor:"#527791"
       },
       boxShadow:{
         dark:"0px 0px 10px rgba(0, 0, 0, 0.3)",

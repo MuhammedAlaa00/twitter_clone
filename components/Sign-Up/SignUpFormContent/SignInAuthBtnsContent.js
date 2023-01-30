@@ -4,10 +4,13 @@ import styles from '../../../styles/Signup.module.scss';
 import ButtonC from '../../AuthButtons';
 import { ToastContainer, toast } from 'react-toastify';
 import { useListViewContext } from './core/useListviewModal';
-import { useFirebase } from '../../../Firebase/FirebaseContext';
 import 'react-toastify/dist/ReactToastify.css';
+import { useFirebase } from '../../../Firebase';
+import { addDoc, Timestamp } from "firebase/firestore"
 function SignInAuthBtnsContent() {
   const { setOpenSignUpModal } = useListViewContext();
+  const {data:session} = useSession()
+  const { getUser, users } = useFirebase()
   const [loading, setLoading] = useState({
     googleLoading: false,
     appleLoading: false,
@@ -18,7 +21,7 @@ function SignInAuthBtnsContent() {
       ...loading,
       googleLoading: true
     });
-    signIn(provider, {callbackUrl:"/"})
+    signIn(provider, { callbackUrl: '/' })
     localStorage.setItem('loggedIn', true)
   };
   const handleAuthSignIn = (e, provider) => {
